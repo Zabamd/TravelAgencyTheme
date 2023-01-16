@@ -1,0 +1,100 @@
+/*
+Theme name: T-par Theme,
+Author: Me,
+Version: 0.8.7 
+ */
+
+/* GLOBAL SETTINGS */
+@font-face {
+  font-family: Poppins;
+  src: url("./assets/font/Poppins-Medium.ttf");
+}
+body {
+  font-family: Poppins;
+}
+
+/* LANDING PAGE */
+.landingImage {
+  background-image: url("./assets/img/landingPageCover.png");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.landingImage .headingWrapper {
+  margin-left: 50px;
+  color: #fff;
+}
+.landingImage .headingWrapper .landingPageHeading {
+  width: 64%;
+  font-size: 72px;
+  text-shadow: 0px 0px 10px var(--wp--preset--color--black);
+}
+
+.landingImage .headingWrapper .landingPageParagraph {
+  font-size: 48px;
+  text-shadow: 0px 0px 10px var(--wp--preset--color--black);
+}
+
+.landingImage .headingWrapper .landingPageButton > a {
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 0px;
+  text-shadow: 0px 0px 2px var(--wp--preset--color--black);
+  font-size: 24px;
+  transition: all 0.5s ease-in-out;
+}
+.landingImage .headingWrapper .landingPageButton > a:hover {
+  border: 2px solid var(--wp--preset--color--black);
+  background: var(--wp--preset--color--blue-highlight);
+  color: var(--wp--preset--color--black);
+  text-shadow: none;
+}
+
+.landingImage .headingWrapper .landingPageButton .arrow {
+  font-size: 32px;
+  padding: 0px;
+  margin: 0px;
+}
+.landingImage .landingPageSocialLinks {
+  flex-direction: column;
+  height: 25%;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 32px;
+}
+.landingPageHeader {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 25px;
+  justify-content: space-around;
+}
+.landingPageHeader .landingPageLogo {
+  background-image: url("./assets/img/logo.png");
+  background-size: cover;
+  width: 10%;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.landingPageHeader .landingPageNav {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  color: #fff;
+  font-size: 20px;
+  text-shadow: 0px 0px 2px var(--wp--preset--color--black);
+}
+
+.landingPageHeader .landingPageNav .landingPageNavLink > a {
+  text-decoration: none;
+}
