@@ -28,17 +28,13 @@
   <!-- wp:query {"queryId":8,"query":{"perPage":3,"pages":0,"offset":0,"postType":"destination","order":"asc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[]},"className":"destinationQueryBlock"} -->
   <div class="wp-block-query destinationQueryBlock">
     <!-- wp:post-template {"className":"destinationPostTemplate"} -->
-    <?php
-      $image =  the_post_thumbnail();
-      echo $image;
-    ?>
     <!-- wp:group {"className":"destinationPostCard"} -->
     <div class="wp-block-group destinationPostCard">
-      <!-- /wp:group -->
       <!-- wp:post-featured-image {"className":"destinationPostImage"} /-->
       <!-- wp:post-title {"className":"destinationPostTitle"} /-->
       <!-- wp:post-content {"className":"destinationPostContent"} /-->
     </div>
+    <!-- /wp:group -->
     <!-- /wp:post-template -->
 
     <!-- wp:query-no-results -->
