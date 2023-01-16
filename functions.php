@@ -7,6 +7,7 @@ class TParTheme
         add_action('after_setup-theme',[$this,'addThemeSupport']);
         add_action('init', [$this, 'registerPatternsCategory']);
         add_action( 'init', [$this, 'registerPostTypes'] );
+        add_action( 'admin_init', [$this,'removeWelcome'] );
 
     }
 
@@ -32,6 +33,10 @@ class TParTheme
                 'label'=> __( 'T-par Agency Theme', 't-par-agency' ),
             ));
     }
+    public function removeWelcome() : void
+    {
+        remove_action( 'welcome_panel', 'wp_welcome_panel');
+    }
 
     public function registerPostTypes() : void
     {
@@ -39,8 +44,13 @@ class TParTheme
             'public'    => true,
             'label'     => __( 'Destinations', 'textdomain' ),
             'supports'  => array( 'title', 'editor', 'author', 'thumbnail' ),
+            'rewrite'   => array( 'slug' => 'destination' ),
             'menu_icon' => 'dashicons-admin-site-alt',
-            'show_in_rest' => true
+            'query_var' => true,
+            'show_in_rest' => true,
+            'has_archive'  => true,
+            'menu_position' => 111,
+            'capability_type' => 'post'
         );
         register_post_type( 'destination', $args );
 
@@ -48,8 +58,13 @@ class TParTheme
             'public'    => true,
             'label'     => __( 'Blog Entries', 'textdomain' ),
             'supports'  => array( 'title', 'editor', 'author', 'thumbnail' ),
+            'rewrite'   => array( 'slug' => 'blog' ),
             'menu_icon' => 'dashicons-welcome-write-blog ',
-            'show_in_rest' => true
+            'query_var' => true,
+            'show_in_rest' => true,
+            'has_archive'  => true,
+            'menu_position' => 112,
+            'capability_type' => 'post'
         );
         register_post_type( 'blog', $args );
 
@@ -58,7 +73,12 @@ class TParTheme
             'label'     => __( 'Hotels', 'textdomain' ),
             'supports'  => array( 'title', 'editor', 'author', 'thumbnail' ),
             'menu_icon' => 'dashicons-admin-home',
-            'show_in_rest' => true
+            'rewrite'   => array( 'slug' => 'hotels' ),
+            'query_var' => true,
+            'show_in_rest' => true,
+            'has_archive'  => true,
+            'menu_position' => 113,
+            'capability_type' => 'post'
         );
         register_post_type( 'hotels', $args );
     }

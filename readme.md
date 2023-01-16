@@ -1,3 +1,7 @@
-# WIP TODO
+# Work In Progress
+
+## TODO
+
 - [ ] Landing page Nav hover
-- [ ] Editor style 
+- [ ] Editor style
+- [ ] Destination Image Size and Shape
