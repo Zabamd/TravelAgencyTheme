@@ -8,7 +8,7 @@ class TParTheme
         add_action('init', [$this, 'registerPatternsCategory']);
         add_action( 'init', [$this, 'registerPostTypes'] );
         add_action( 'admin_init', [$this,'removeWelcome'] );
-
+        add_filter('register_post_type_args', [$this, 'removeDefaultPostType'], 0, 2);
     }
 
     public function addThemeSupport() : void 
@@ -43,12 +43,13 @@ class TParTheme
         $args = array(
             'public'    => true,
             'label'     => __( 'Destinations', 'textdomain' ),
+            'description' => __('Post type to display locations on front page in the Destination Content Section Pattern'),
             'supports'  => array( 'title', 'editor', 'author', 'thumbnail' ),
             'rewrite'   => array( 'slug' => 'destination' ),
             'menu_icon' => 'dashicons-admin-site-alt',
             'query_var' => true,
             'show_in_rest' => true,
-            'has_archive'  => true,
+            'has_archive'  => false,
             'menu_position' => 111,
             'capability_type' => 'post'
         );
@@ -57,12 +58,13 @@ class TParTheme
         $args = array(
             'public'    => true,
             'label'     => __( 'Blog Entries', 'textdomain' ),
+            'description' => __('Blog post type'),
             'supports'  => array( 'title', 'editor', 'author', 'thumbnail' ),
             'rewrite'   => array( 'slug' => 'blog' ),
             'menu_icon' => 'dashicons-welcome-write-blog ',
             'query_var' => true,
             'show_in_rest' => true,
-            'has_archive'  => true,
+            'has_archive'  => false,
             'menu_position' => 112,
             'capability_type' => 'post'
         );
@@ -71,17 +73,36 @@ class TParTheme
         $args = array(
             'public'    => true,
             'label'     => __( 'Hotels', 'textdomain' ),
+            'description' => __('Post type to manage list of hotels'),
             'supports'  => array( 'title', 'editor', 'author', 'thumbnail' ),
             'menu_icon' => 'dashicons-admin-home',
             'rewrite'   => array( 'slug' => 'hotels' ),
             'query_var' => true,
             'show_in_rest' => true,
-            'has_archive'  => true,
+            'has_archive'  => false,
             'menu_position' => 113,
             'capability_type' => 'post'
         );
         register_post_type( 'hotels', $args );
     }
+
+    public function removeDefaultPostType($args, $postType) : array
+    {
+        if ($postType === 'post') {
+            $args['public']                = false;
+            $args['show_ui']               = false;
+            $args['show_in_menu']          = false;
+            $args['show_in_admin_bar']     = false;
+            $args['show_in_nav_menus']     = false;
+            $args['can_export']            = false;
+            $args['has_archive']           = false;
+            $args['exclude_from_search']   = true;
+            $args['publicly_queryable']    = false;
+            $args['show_in_rest']          = false;
+        }
+    
+        return $args;
+    }  
 }
 
 //theme init
