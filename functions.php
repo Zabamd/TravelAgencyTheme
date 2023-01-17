@@ -84,6 +84,21 @@ class TParTheme
             'capability_type' => 'post'
         );
         register_post_type( 'hotels', $args );
+
+        $args = array(
+            'public'    => true,
+            'label'     => __( 'Client Opinions', 'textdomain' ),
+            'description' => __('Post type to manage client opinions on front page'),
+            'supports'  => array( 'title', 'editor', 'author', 'thumbnail' ),
+            'menu_icon' => 'dashicons-admin-users',
+            'rewrite'   => array( 'slug' => 'hotels' ),
+            'query_var' => true,
+            'show_in_rest' => true,
+            'has_archive'  => false,
+            'menu_position' => 114,
+            'capability_type' => 'post'
+        );
+        register_post_type( 'clients', $args );
     }
 
     public function removeDefaultPostType($args, $postType) : array

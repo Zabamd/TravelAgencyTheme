@@ -1,3 +1,36 @@
 <!-- wp:pattern {"slug":"t-par-agency/landing-image-section"} /-->
 <!-- wp:pattern {"slug":"t-par-agency/destination-content-section"} /-->
 <!-- wp:pattern {"slug":"t-par-agency/highlight-content-section"} /-->
+
+
+
+<!-- wp:group {'className':'contentSection'} -->
+<div class="wp-block-group contentSection">  
+    <!-- wp:heading {'className':'contentSectionHeading'} -->
+      <h2 class="contentSectionHeading">AVIS</h2>
+      <!-- /wp:heading -->
+      <!-- wp:paragraph {'className':'contentSectionParagraph'} -->
+      <p class="contentSectionParagraph">Ce que les gens pensent de nous </p>
+      <!-- /wp:paragraph -->
+      
+      <!-- wp:query {"queryId":8,"query":{"perPage":3,"pages":0,"offset":0,"postType":"destination","order":"","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[]},"className":"destinationQueryBlock"} -->
+      <div class="wp-block-query destinationQueryBlock">
+        <!-- wp:post-template {"className":"destinationPostTemplate"} -->
+        <!-- wp:group {"className":"destinationPostCard"} -->
+        <div class="wp-block-group destinationPostCard">
+          <!-- wp:post-featured-image {"className":"destinationPostImage"} /-->
+          <!-- wp:post-title {"className":"destinationPostTitle"} /-->
+          <!-- wp:post-content {"className":"destinationPostContent"} /-->
+        </div>
+        <!-- /wp:group -->
+        <!-- /wp:post-template -->
+        <!-- wp:query-no-results -->
+        <!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
+        <p>Add User Stories</p>
+        <!-- /wp:paragraph -->
+        <!-- /wp:query-no-results -->
+      </div>
+      <!-- /wp:query -->
+    </div>
+    <!-- /wp:group -->
+    

@@ -5,6 +5,13 @@ Version: 0.8.7
  */
 
 /* GLOBAL SETTINGS */
+:root {
+  --largeHeadingFontSize: 72px;
+  --headingFontSize: 60px;
+  --paragraphFontSize: 30px;
+  --largeParagraphFontSize: 48px;
+  --mediumFontSize: 25px;
+}
 @font-face {
   font-family: Poppins;
   src: url("./assets/font/Poppins-Medium.ttf");
@@ -49,12 +56,12 @@ body {
 }
 .landingImage .headingWrapper .landingPageHeading {
   width: 64%;
-  font-size: 72px;
+  font-size: var(--largeHeadingFontSize);
   text-shadow: 0px 0px 10px var(--wp--preset--color--black);
 }
 
 .landingImage .headingWrapper .landingPageParagraph {
-  font-size: 48px;
+  font-size: var(--largeParagraphFontSize);
   text-shadow: 0px 0px 10px var(--wp--preset--color--black);
 }
 
@@ -65,7 +72,7 @@ body {
   padding: 5px 10px;
   margin: 0px;
   text-shadow: 0px 0px 2px var(--wp--preset--color--black);
-  font-size: 24px;
+  font-size: var(--mediumFontSize);
   transition: all 0.5s ease-in-out;
 }
 .landingImage .headingWrapper .landingPageButton > a:hover {
@@ -76,7 +83,7 @@ body {
 }
 
 .landingImage .headingWrapper .landingPageButton .arrow {
-  font-size: 32px;
+  font-size: var(--paragraphFontSize);
   padding: 0px;
   margin: 0px;
 }
@@ -85,13 +92,13 @@ body {
   height: 25%;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 32px;
+  font-size: var(--paragraphFontSize);
 }
 .landingPageHeader {
   width: 100%;
   position: absolute;
   top: 0;
-  padding: 25px;
+  padding: var(--mediumFontSize);
   justify-content: space-around;
 }
 .landingPageHeader .landingPageLogo {
@@ -109,7 +116,7 @@ body {
   flex-direction: row;
   gap: 20px;
   color: #fff;
-  font-size: 20px;
+  font-size: var(--mediumFontSize);
   text-shadow: 0px 0px 2px var(--wp--preset--color--black);
 }
 
@@ -121,18 +128,16 @@ body {
 .contentSection {
   width: 100vw;
   height: 100vh;
-  /*   margin: 25px;
-  padding: 25px; */
 }
 
 .contentSection .contentSectionHeading {
-  font-size: 60px;
+  font-size: var(--headingFontSize);
   margin: 0 25px 25px 25px;
   padding: 25px;
 }
 
 .contentSection .contentSectionParagraph {
-  font-size: 30px;
+  font-size: var(--paragraphFontSize);
   font-family: PoppinsLight;
   max-width: 100%;
   margin: 0 25px 25px 25px;
@@ -168,7 +173,7 @@ body {
   position: absolute;
 }
 .destinationPostTitle {
-  font-size: 48px;
+  font-size: var(--largeParagraphFontSize);
   text-shadow: 0px 0px 10px var(--wp--preset--color--black);
   top: 70%;
   letter-spacing: 20px;
@@ -176,7 +181,7 @@ body {
 .destinationPostContent {
   top: 80%;
   padding-top: 15px;
-  font-size: 28px;
+  font-size: var(--mediumFontSize);
   text-shadow: 0px 0px 10px var(--wp--preset--color--black);
 }
 
@@ -205,15 +210,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 48px;
+  font-size: var(--largeParagraphFontSize);
   letter-spacing: 10px;
   font-family: PoppinsSemiBold;
 }
 .highlightSquareSection .highlightSquare > p {
   color: var(--wp--preset--color--black);
   text-align: center;
-  font-size: 30px;
+  font-size: var(--paragraphFontSize);
   text-transform: lowercase;
   font-family: PoppinsLight;
+}
 
+@media only screen and (max-width: 600px) {
+  :root {
+    --largeHeadingFontSize: 52px;
+    --headingFontSize: 32px;
+    --paragraphFontSize: 16px;
+    --largeParagraphFontSize: 25px;
+    --mediumFontSize: 12px;
+  }
 }
