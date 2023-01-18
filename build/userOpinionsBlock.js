@@ -1,0 +1,1 @@
+(()=>{"use strict";const o=window.wp.blocks,n=(window.wp.components,window.wp.i18n);(0,o.registerBlockType)("t-par-agency/user-opinions",{title:(0,n.__)("User Opinions"),category:"t-par-agency",icon:"embed-post",edit:function(o){console.log(o)},save:function(o){console.log(o)}})})();

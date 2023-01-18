@@ -3,12 +3,13 @@
 class TParTheme 
 {
     public function __construct() {
-        add_action('wp_enqueue_scripts', [$this,'enqueueStyle']);
-        add_action('after_setup-theme',[$this,'addThemeSupport']);
-        add_action('init', [$this, 'registerPatternsCategory']);
+        add_action(' wp_enqueue_scripts', [$this,'enqueueStyle'] );
+        add_action( 'after_setup-theme',[$this,'addThemeSupport'] );
+        add_action( 'init', [$this, 'registerPatternsCategory'] );
         add_action( 'init', [$this, 'registerPostTypes'] );
-        add_action( 'admin_init', [$this,'removeWelcome'] );
-        add_filter('register_post_type_args', [$this, 'removeDefaultPostType'], 0, 2);
+        add_action( 'init', [$this, 'registerBlocks'] );
+        add_filter( 'register_post_type_args', [$this, 'removeDefaultPostType'], 0, 2 );
+        add_filter( 'block_categories_all', [$this, 'registerBlockCategories'] );
     }
 
     public function addThemeSupport() : void 
@@ -32,10 +33,6 @@ class TParTheme
             array(
                 'label'=> __( 'T-par Agency Theme', 't-par-agency' ),
             ));
-    }
-    public function removeWelcome() : void
-    {
-        remove_action( 'welcome_panel', 'wp_welcome_panel');
     }
 
     public function registerPostTypes() : void
@@ -118,6 +115,42 @@ class TParTheme
     
         return $args;
     }  
+
+    public function registerBlockCategories(array $block_categories): array
+    {
+        array_unshift($block_categories, array(
+            "slug" => "t-par-agency",
+            "title" => __("T-Par Agency theme")
+        ));
+
+        return $block_categories;
+    }
+
+    public function registerBlocks() : void
+    {
+        $this->registerBlockTypes();
+        $this->registerBlockStyles();
+    }
+    private function registerBlockTypes() : void 
+    {
+        wp_register_script(
+            "userOpinionsBlockScript",
+            get_stylesheet_directory_uri() ."/build/userOpinionsBlock.js",
+            ["wp-blocks", "wp-editor"]
+        );
+
+        register_block_type("t-par-agency/user-opinions", [
+            "editor_script" =>"userOpinionsBlockScript",
+        ]);
+    }
+    private function registerBlockStyles() : void
+    {
+        wp_enqueue_style(
+            "userOpinions_style",
+            get_theme_file_uri("/build/userOpinionsBlock.css")
+        );
+        add_editor_style(["/build/userOpinionsBlock.css"]);
+    }
 }
 
 //theme init

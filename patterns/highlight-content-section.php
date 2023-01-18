@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Content Section
- * Slug: t-par-agency/content-section
+ * Slug: t-par-agency/highlight-content-section
  * Categories:t-par-agency
  */
 ?>
