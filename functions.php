@@ -1,6 +1,8 @@
 <?php
 
-class TParTheme 
+use zabamd\TravelAgencyTheme\blocks\Block;
+
+class TravelAgencyTheme 
 {
     public function __construct() {
         add_action('wp_enqueue_scripts', [$this,'enqueueStyle']);
@@ -8,6 +10,7 @@ class TParTheme
         add_action('init', [$this, 'registerPatternsCategory']);
         add_action( 'init', [$this, 'registerPostTypes'] );
         add_action( 'admin_init', [$this,'removeWelcome'] );
+        add_filter( 'block_categories_all', [$this, 'registerBlockCategory'] );
 
     }
 
@@ -32,6 +35,15 @@ class TParTheme
             array(
                 'label'=> __( 'T-par Agency Theme', 't-par-agency' ),
             ));
+    }
+    public function registerBlockCategory(array $block_categories) : array 
+    {
+        $block_categories[] = array(
+            'slug'  =>'travelAgency',
+            'title' => __('Travel Agency'),
+        );
+
+        return $block_categories;
     }
     public function removeWelcome() : void
     {
@@ -85,5 +97,8 @@ class TParTheme
 }
 
 //theme init
-$init = new TParTheme();
+$init = new TravelAgencyTheme();
+
+//Block Init
+
 ?>

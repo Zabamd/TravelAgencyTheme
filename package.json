@@ -1,0 +1,14 @@
+{
+  "name": "travelagencytheme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start ./src/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/element": "^5.5.0"
+  }
+}
