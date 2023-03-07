@@ -1,4 +1,7 @@
+
 # Work In Progress
+# Wordpress theme based on figma design
+
 
 ## TODO
 
