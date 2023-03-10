@@ -2,7 +2,7 @@
     "name": "zabamd/travel-agency-theme",
     "autoload": {
         "psr-4": {
-            "Zabamd\\TravelAgencyTheme\\": "./"
+            "TravelAgencyTheme\\": "./"
         }
     },
     "authors": [

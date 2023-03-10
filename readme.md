@@ -6,7 +6,6 @@
 ## TODO
 
 -[] Add editor style
--[] Make Destination section as react block
+-[] Translate Destination section as react block
 -[] RWD
-
 

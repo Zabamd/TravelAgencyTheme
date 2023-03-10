@@ -1,6 +1,4 @@
 <?php
-namespace zabamd\TravelAgencyTheme\blocks;
-
 class Block
 {
     private string $blockName;
@@ -21,23 +19,26 @@ class Block
     {
         wp_enqueue_style(
             $this->blockName . "_style",
-            get_theme_file_uri("/blocks/build/" . $this->blockName . ".css")
+            get_theme_file_uri("/build/" . $this->blockName . ".css")
         );
         add_editor_style([
-            get_theme_file_uri("/blocks/build/" . $this->blockName . ".css"),
+            "/build/" . $this->blockName . ".css"
         ]);
     }
 
     private function registerBlock(): void
     {
-        wp_enqueue_script(
+        wp_register_script(
             $this->blockName . "_block_script",
-            get_theme_file_uri("/blocks/build/" . $this->blockName . ".js", [
+            get_theme_file_uri("/build/" . $this->blockName . ".js", [
                 "wp-blocks",
-                "wp-editor",
+                'wp-components',
+                'wp-element',
+                'wp-i18n',
+                'wp-editor'
             ])
         );
-        register_block_type("travel_agency/" . $this->blockName, [
+        register_block_type("travelagency/" . $this->blockName, [
             "editor_script" => $this->blockName . "_block_script",
         ]);
     }

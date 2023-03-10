@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "wp-scripts start ./src/*.js"
+    "start": "wp-scripts start ./blocks/src/*.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wordpress/element": "^5.5.0"
+    "@wordpress/blocks": "^12.5.0",
+    "@wordpress/element": "^5.5.0",
+    "@wordpress/i18n": "^4.28.0",
+    "@wordpress/scripts": "^25.5.1"
   }
 }
